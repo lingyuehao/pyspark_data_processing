@@ -23,3 +23,29 @@ The SQL analysis showed clear spatial and temporal patterns in the incident data
 From a technical perspective, Spark handled the dataset efficiently through early filtering, repartitioning, and column pruning. The physical plan confirmed that filters were pushed down and computation was vectorized using Photon, which reduced I/O and improved performance. Although groupBy and joins were the most time-consuming stages, partitioning by state_abbr helped balance workloads and minimize shuffle overhead.
 
 ## Screenshots:
+
+### 1. Query Execution Plan (.explain() output or Spark UI)
+
+These screenshots show Spark’s physical execution plan and optimization stages, confirming that Spark applied WholeStageCodegen, Project, and Exchange operators during query execution.
+
+![Query Plan 1](./screenshots/query_plan_1.png)
+![Query Plan 2](./screenshots/query_plan_2.png)
+![Query Plan 3](./screenshots/query_plan_3.png)
+
+
+### 2. Successful Pipeline Execution
+
+These outputs show that the PySpark SQL queries ran successfully, returning the aggregated state and regional incident results.
+
+![Pipeline Execution 1](./screenshots/pipeline_execution_1.png)
+![Pipeline Execution 2](./screenshots/pipeline_execution_2.png)
+
+### 3. Query Details View Showing Optimization
+
+The following screenshots come from the Spark UI’s “Query Details” page.  
+They display the DAG visualization and execution stages, showing Spark’s optimizations such as predicate pushdown, column pruning, and shuffle reduction.
+
+![Query Details 1](./screenshots/query_details_1.png)
+![Query Details 2](./screenshots/query_details_2.png)
+![Query Details 3](./screenshots/query_details_3.png)
+![Query Details 4](./screenshots/query_details_4.png)
