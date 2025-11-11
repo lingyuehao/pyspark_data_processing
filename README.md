@@ -38,7 +38,7 @@ These screenshots show Spark’s physical execution plan and optimization stages
 These outputs show that the PySpark SQL queries ran successfully, returning the aggregated state and regional incident results.
 
 ![Pipeline Execution 1](./screenshots/pipeline_execution_1.png)
-![Pipeline Execution 2](./screenshots/pipeline_execution_2.png)
+![Pipeline Execution 2](./screenshots/pipeline_ execution_2.png)
 
 ### 3. Query Details View Showing Optimization
 
